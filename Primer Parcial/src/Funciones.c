@@ -101,3 +101,29 @@ int MostrarListaTrabajosConServicio(eTrabajo lista[], int tam, eServicio servici
 
 	return isOk;
 }
+int BajaTrabajo(eTrabajo lista[], int tam,eServicio servicios[], int tamS)
+{
+	int isOk=-1;
+	char respuesta[4];
+	int index;
+	int id;
+
+	if(lista != NULL && tam>0)
+	{
+		MostrarListaTrabajosConServicio(lista,tam,servicios,tamS);
+		utn_getInt("Ingrese el ID para dar de baja\n","Error, ID invalido\n",1,tam,2,&id);
+		index=BuscarTrabajoPorId(lista,tam,id);
+		MostrarTrabajoConServicio(lista[index],servicios,tamS);
+		utn_getString("\n¿Esta seguro que desea eliminar este trabajo?[si/no]\n","\nRespuesta invalida, ingrese [si/no]\n",4,2,respuesta);
+		if(!(stricmp(respuesta,"si")))
+		{
+			lista[index].isEmpty=VACIO;
+			printf("\nEl trabajo de la bicicleta marca %s y rodado %d con ID %d se ha dado de baja correctamente\n",lista[index].marcaBicicleta
+																												   ,lista[index].rodadoBicicleta
+																												   ,lista[index].id);
+			isOk=0;
+		}
+	}
+
+	return isOk;
+}

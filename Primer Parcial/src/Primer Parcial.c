@@ -71,10 +71,10 @@ int main(void) {
 					utn_getInt("¿Cuantos trabajos desea dar de baja?\n","Error, cantidad invalida\n",1,1000,2,&cantidad);
 					do
 					{
-						/*if()
+						if(BajaTrabajo(unTrabajo,T,unServicio,S))
 						{
 							printf("Ningun cambio realizado\n");
-						}*/
+						}
 						i++;
 					}while(cantidad!=i);
 				}

@@ -28,7 +28,7 @@ void HardcodeoServicio(eServicio lista[])
 
 void MostrarServicio(eServicio servicio)
 {
-	printf( "ID del servicio: %d\n"
+	printf( "\nID del servicio: %d\n"
 			"Descripcion: %s\n"
 			"Precio: %.2f\n", servicio.id
 							, servicio.descripcion

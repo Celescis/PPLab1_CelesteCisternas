@@ -16,6 +16,7 @@ int Menu();
 int AltaTrabajo(eTrabajo lista[], int tam, eServicio listaS[], int tamS);
 int MostrarTrabajoConServicio(eTrabajo unTrabajo, eServicio servicios[], int tamS);
 int MostrarListaTrabajosConServicio(eTrabajo lista[], int tam, eServicio servicios[], int tamS);
+int BajaTrabajo(eTrabajo lista[], int tam,eServicio servicios[], int tamS);
 
 
 
