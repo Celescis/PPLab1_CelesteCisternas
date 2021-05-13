@@ -7,7 +7,7 @@
 
 #ifndef TRABAJO_H_
 #define TRABAJO_H_
-#define T 4
+#define T 100
 #define VACIO 0
 #define OCUPADO 1
 
