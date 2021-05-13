@@ -11,18 +11,19 @@
 #include "Servicio.h"
 #include "Utn.h"
 
-void HardcodeoServicio(eServicio lista[])
+void HardcodeoServicio(eServicio lista[],int* idServicio)
 {
-	int auxId[S]={20000,20001,20002,20003};
 	char auxDescripcion[S][25]={"Limpieza","Parche","Centrado","Cadena"};
 	float auxPrecio[S]={250,300,400,350};
 	int i;
 
 	for(i=0;i<S;i++)
 	{
-		lista[i].id=auxId[i];
+		lista[i].id=*idServicio;
 		strcpy(lista[i].descripcion,auxDescripcion[i]);
 		lista[i].precio=auxPrecio[i];
+
+		(*idServicio)++;
 	}
 }
 

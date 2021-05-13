@@ -24,9 +24,10 @@ int main(void) {
 	int i;
 	eTrabajo unTrabajo[T];
 	eServicio unServicio[S];
+	int idServicio=20000;
 
 	Inicializar(unTrabajo,T);
-	HardcodeoServicio(unServicio);
+	HardcodeoServicio(unServicio,&idServicio);
 
 	do
 	{
@@ -98,6 +99,10 @@ int main(void) {
 			case 5:
 				printf("\t\t>LISTA DE SERVICIOS<<\t\t\n");
 				MostrarListaServicios(unServicio,S);
+				break;
+			case 6:
+				printf("\t\t>TOTAL<<\t\t\n");
+				TotalPesosServicio(unTrabajo,T,unServicio,S);
 				break;
 		}
 	}while(stricmp(confirmar,"si"));

@@ -17,7 +17,7 @@ typedef struct
 
 }eServicio;
 
-void HardcodeoServicio(eServicio lista[]);
+void HardcodeoServicio(eServicio lista[], int* idServicio);
 void MostrarServicio(eServicio servicio);
 int MostrarListaServicios(eServicio servicios[], int tam);
 int GetDescripcionServicio(eServicio lista[], int tam, int buscarCodigo,char descripcion[]);

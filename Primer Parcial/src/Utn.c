@@ -214,4 +214,4 @@ int utn_getFloat(char mensaje[], char mensajeError[], float min, float max, int 
 
     return isOk;
 }
-//-----------------------------------OTRAS-----------------------------------
+

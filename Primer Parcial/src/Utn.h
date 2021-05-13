@@ -95,18 +95,18 @@ int isFloat(char resultado[]);//verifica si la cadena son numeros y que tenga el
 int getFloat(float* input);//verifica que sea float
 /**
  * @fn int utn_getFloat(char[], char[], float, float, int, float*)
- * @brief
+ * @brief funcion que imprime un mensaje solicitando un float, en caso de error en las validaciones imprime el mensaje de error y va descontando los reintentos
  *
- * @param mensaje
- * @param mensajeError
- * @param min
- * @param max
- * @param reintentos
- * @param input
+ * @param mensaje imprime un mensaje solicitando un numero float
+ * @param mensajeError imprime un mensaje de error si se ingresa un parametro incorrecto
+ * @param min tamaño minimo del numero float
+ * @param max tamaño maximo del numero float
+ * @param reintentos cantidad de reintentos para ingresar el numero
+ * @param input el valor ingresado por el usuario
  * @return devuelve -1 si salio todo mal, devuelve 0 si salio todo bien
  */
 int utn_getFloat(char mensaje[], char mensajeError[], float min, float max, int reintentos, float* input);
-//----------------------------------------------OTROS----------------------------------------------------
+
 
 
 

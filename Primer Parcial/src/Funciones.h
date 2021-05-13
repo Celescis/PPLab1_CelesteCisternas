@@ -19,6 +19,7 @@ int MostrarTrabajoConServicio(eTrabajo unTrabajo, eServicio servicios[], int tam
 int MostrarListaTrabajosConServicio(eTrabajo lista[], int tam, eServicio servicios[], int tamS);
 int BajaTrabajo(eTrabajo lista[], int tam,eServicio servicios[], int tamS);
 int ModificarTrabajo(eTrabajo lista[], int tam, eServicio servicios[], int tamS);
+int TotalPesosServicio(eTrabajo lista[], int tam, eServicio servicios[], int tamS);
 
 
 

@@ -20,8 +20,9 @@ int Menu()
 	printf("3. BAJA\n");
 	printf("4. MOSTRAR lista trabajos\n");
 	printf("5. MOSTRAR lista servicios\n");
+	printf("6. TOTAL en pesos por los servicios prestados\n");
 	printf("0. SALIR\n");
-	utn_getInt("\nIngrese una opcion: \n","Error, opcion invalida",0,5,2,&opciones);
+	utn_getInt("\nIngrese una opcion: \n","Error, opcion invalida",0,6,2,&opciones);
 
 	return opciones;
 }
@@ -191,6 +192,30 @@ int ModificarTrabajo(eTrabajo lista[], int tam, eServicio servicios[], int tamS)
 	{
 		printf("No se realizo ningun cambio\n");
 	}
+
+	return isOk;
+}
+
+int TotalPesosServicio(eTrabajo lista[], int tam, eServicio servicios[], int tamS)
+{
+	int isOk=-1;
+	int i;
+	int j;
+	float auxPrecio;
+
+	for(i=0; i<tam-1 ; i++)
+	{
+		for(j=i+1; j<tamS ; j++)
+		{
+			if(lista[i].idServicio==servicios[j].id)
+			{
+				auxPrecio += servicios[j].precio;
+				isOk=0;
+			}
+		}
+	}
+
+	printf("El total en pesos por los servicios prestados es: $%.2f ",auxPrecio);
 
 	return isOk;
 }
