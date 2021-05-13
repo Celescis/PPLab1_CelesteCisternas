@@ -32,6 +32,7 @@ int ObtenerId(void);
 void Inicializar(eTrabajo lista[], int tam);
 int BuscarLibre(eTrabajo lista[], int tam);
 int BuscarTrabajoPorId(eTrabajo lista[], int tam, int id);
+int OrdenarTrabajosPorAnio(eTrabajo lista[], int tam);
 
 
 #endif /* TRABAJO_H_ */

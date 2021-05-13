@@ -87,12 +87,17 @@ int main(void) {
 				printf("\t\t>LISTA DE TRABAJOS<<\t\t\n");
 				if(flag==REALIZADO)
 				{
+					OrdenarTrabajosPorAnio(unTrabajo,T);
 					MostrarListaTrabajosConServicio(unTrabajo,T,unServicio,S);
 				}
 				else
 				{
 					printf("Error, no se han dado de alta ningun trabajo\n");
 				}
+				break;
+			case 5:
+				printf("\t\t>LISTA DE SERVICIOS<<\t\t\n");
+				MostrarListaServicios(unServicio,S);
 				break;
 		}
 	}while(stricmp(confirmar,"si"));

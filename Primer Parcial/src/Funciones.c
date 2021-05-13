@@ -19,8 +19,9 @@ int Menu()
 	printf("2. MODIFICAR\n");
 	printf("3. BAJA\n");
 	printf("4. MOSTRAR lista trabajos\n");
+	printf("5. MOSTRAR lista servicios\n");
 	printf("0. SALIR\n");
-	utn_getInt("\nIngrese una opcion: \n","Error, opcion invalida",0,4,2,&opciones);
+	utn_getInt("\nIngrese una opcion: \n","Error, opcion invalida",0,5,2,&opciones);
 
 	return opciones;
 }
@@ -83,7 +84,7 @@ int MostrarTrabajoConServicio(eTrabajo unTrabajo, eServicio servicios[], int tam
 			   "Numero de rodado: %d\n"
 			   "ID servicio: %d\n"
 			   "Descripcion: %s\n"
-			   "Fecha: %2.d/%2.d/%d\n", unTrabajo.id
+			   "Fecha: %02d/%02d/%d\n", unTrabajo.id
 			   	   	   	   	   	   	  , unTrabajo.marcaBicicleta
 									  , unTrabajo.rodadoBicicleta
 								      , unTrabajo.idServicio
