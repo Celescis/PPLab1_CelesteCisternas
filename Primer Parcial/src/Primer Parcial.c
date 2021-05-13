@@ -1,10 +1,9 @@
 /*
  ============================================================================
-                        PRIMER PARCIAL LABORATORIO 2021
+                       PRIMER PARCIAL LABORATORIO 2021
  Nombre      : Celeste Cisternas
  Curso       : 1ro B
- Copyright   : Your copyright notice
- Description : Hello World in C, Ansi-style
+
  ============================================================================
  */
 

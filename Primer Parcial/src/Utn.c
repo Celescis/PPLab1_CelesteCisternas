@@ -19,7 +19,7 @@ int isChar(char string[])
 
 	for(i = 0; i<stringTam; i++)
 	{
-		if((string[i] != ' ') && (string[i] < 'a' || string[i] > 'z') && (string[i] < 'A' || string[i] > 'Z'))//si no es espacio, si es a>i>z minus y mayus, NO ES LETRA
+		if((string[i] != ' ') && (string[i] < 'a' || string[i] > 'z') && (string[i] < 'A' || string[i] > 'Z'))
 		{
 			isOk = -1;
 			break;
@@ -101,7 +101,7 @@ int utn_getString(char mensaje[], char mensajeError[], int tam, int reintentos, 
 //-----------------------------------INT-----------------------------------
 int isInt(char input[])
 {
-    int isOk = -1;
+    int isOk = 0;
     int i = 0;
     int stringTam = strlen(input); //devuelve la longitud de la cadena sin contar el nulo final \0
 
@@ -109,7 +109,7 @@ int isInt(char input[])
     {
     	if(input[i]< 0 || input[i]> 9 )
         {
-    		isOk=0;
+    		isOk=-1;
             break;
         }
     }
@@ -159,7 +159,7 @@ int utn_getInt(char mensaje[], char mensajeError[], int min, int max, int reinte
 //-----------------------------------FLOAT-----------------------------------
 int isFloat(char input[])
 {
-    int isOk = -1;
+    int isOk = 0;
     int i;
     int stringTam = strlen(input);
 
@@ -167,7 +167,7 @@ int isFloat(char input[])
     {
         if((input[i]< 0 || input[i]> 9 ) && (input[i]!='.'))
         {
-        	isOk = 0;
+        	isOk = -1;
             break;
         }
     }

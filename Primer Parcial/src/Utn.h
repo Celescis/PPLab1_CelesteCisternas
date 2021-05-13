@@ -49,50 +49,50 @@ int utn_getString(char mensaje[], char mensajeError[], int tam, int reintentos,c
 //-----------------------------------------------INT-----------------------------------------------------
 /**
  * @fn int isInt(char[])
- * @brief
+ * @brief  revisa si la cadena tiene incluido numeros
  *
- * @param resultado
+ * @param resultado la cadena a analizar
  * @return devuelve -1 si salio todo mal, devuelve 0 si salio todo bien
  */
-int isInt(char resultado[]);//verifica si la cadena tiene numeros
+int isInt(char resultado[]);
 /**
  * @fn int getInt(int*)
- * @brief
+ * @brief revisa que sea cadena de numeros tipo int
  *
- * @param input
+ * @param input valor int ingresado por el usuario
  * @return devuelve -1 si salio todo mal, devuelve 0 si salio todo bien
  */
-int getInt(int* input);//verifica que sea int
+int getInt(int* input);
 /**
  * @fn int utn_getInt(char[], char[], int, int, int, int*)
- * @brief
+ * @brief funcion que imprime un mensaje solicitando un int, en caso de error en las validaciones imprime el mensaje de error y va descontando los reintentos
  *
- * @param mensaje
- * @param mensajeError
- * @param min
- * @param max
- * @param reintentos
- * @param input
+ * @param mensaje imprime un mensaje
+ * @param mensajeError imprime un mensaje de error
+ * @param min tamaño minimo que puede tomar el numero
+ * @param max tamaño maximo que puede tomar el numero
+ * @param reintentos cantidad total de reintentos que tiene para equivocarse
+ * @param input el valor que ingreso el usuario
  * @return devuelve -1 si salio todo mal, devuelve 0 si salio todo bien
  */
 int utn_getInt(char mensaje[],char mensajeError[],int min,int max,int reintentos,int* input);
 //----------------------------------------------FLOAT----------------------------------------------------
 /**
  * @fn int isFloat(char[])
- * @brief
+ * @brief revisa si es numero y tiene '.' para ser de tipo float
  *
- * @param resultado
+ * @param resultadov recibe una cadena
  * @return devuelve -1 si salio todo mal, devuelve 0 si salio todo bien
  */
-int isFloat(char resultado[]);//verifica si la cadena son numeros y que tenga el '.'
+int isFloat(char resultado[]);
 /**
  * @fn int getFloat(float*)
- * @brief
+ * @brief revisa si es una cadena de flotantes
  *
- * @param input
+ * @param input ingresa un valor tipo float
  * @return devuelve -1 si salio todo mal, devuelve 0 si salio todo bien
  */
-int getFloat(float* input);//verifica que sea float
+int getFloat(float* input);
 /**
  * @fn int utn_getFloat(char[], char[], float, float, int, float*)
  * @brief funcion que imprime un mensaje solicitando un float, en caso de error en las validaciones imprime el mensaje de error y va descontando los reintentos
