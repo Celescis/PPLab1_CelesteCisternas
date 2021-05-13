@@ -56,7 +56,7 @@ int main(void) {
 				printf("\t\t>MODIFICAR<\t\t\n");
 				if(flag==REALIZADO)
 				{
-
+					 ModificarTrabajo(unTrabajo,T,unServicio,S);
 				}
 				else
 				{

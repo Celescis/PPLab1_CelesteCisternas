@@ -24,6 +24,20 @@ int Menu()
 
 	return opciones;
 }
+
+int MenuModificaciones()
+{
+	int opciones;
+
+	printf("\n\t>MODIFICAR<\t\n");
+	printf("1. Marca de la bicicleta\n");
+	printf("2. Servicio\n");
+	printf("0. SALIR\n");
+	utn_getInt("\nIngrese una opcion para modificar: \n","Error, opcion invalida",0,2,2,&opciones);
+
+	return opciones;
+}
+
 int AltaTrabajo(eTrabajo lista[], int tam, eServicio listaS[], int tamS)
 {
 	int isOk=-1;
@@ -55,6 +69,7 @@ int AltaTrabajo(eTrabajo lista[], int tam, eServicio listaS[], int tamS)
 
 	return isOk;
 }
+
 int MostrarTrabajoConServicio(eTrabajo unTrabajo, eServicio servicios[], int tamS)
 {
 	int isOk=-1;
@@ -81,6 +96,7 @@ int MostrarTrabajoConServicio(eTrabajo unTrabajo, eServicio servicios[], int tam
 
 	return isOk;
 }
+
 int MostrarListaTrabajosConServicio(eTrabajo lista[], int tam, eServicio servicios[], int tamS)
 {
 	int isOk=-1;
@@ -101,6 +117,7 @@ int MostrarListaTrabajosConServicio(eTrabajo lista[], int tam, eServicio servici
 
 	return isOk;
 }
+
 int BajaTrabajo(eTrabajo lista[], int tam,eServicio servicios[], int tamS)
 {
 	int isOk=-1;
@@ -123,6 +140,55 @@ int BajaTrabajo(eTrabajo lista[], int tam,eServicio servicios[], int tamS)
 																												   ,lista[index].id);
 			isOk=0;
 		}
+	}
+
+	return isOk;
+}
+
+int ModificarTrabajo(eTrabajo lista[], int tam, eServicio servicios[], int tamS)
+{
+	int isOk=-1;
+	char respuesta[4];
+	char confirmar[4]="no";
+	int index;
+	int auxId;
+	char auxMarca[25];
+	int auxIdServicio;
+
+	MostrarListaTrabajosConServicio(lista,tam,servicios,tamS);
+	utn_getInt("Ingrese el ID del trabajo a modificar: \n","Error, ID invalido\n",1,tam,2,&auxId);
+	index=BuscarTrabajoPorId(lista, tam, auxId);
+	MostrarTrabajoConServicio(lista[index],servicios,tamS);
+	utn_getString("¿Esta seguro que desea modificar este trabajo? [si/no]\n","Error, ingrese [si/no]\n",4,2,respuesta);
+
+	if(!(stricmp(respuesta,"si")))
+	{
+		do
+		{
+			switch(MenuModificaciones())
+			{
+				case 0:
+					utn_getString("\n¿Esta seguro que desea salir?[si/no]\n","\nRespuesta invalida, ingrese [si/no]\n",4,2,confirmar);
+					break;
+				case 1:
+					printf("\t****MODIFICAR MARCA****\t\n");
+					utn_getString("Ingrese la nueva marca\n","Error, nombre invalido\n",25,2,auxMarca);
+					strcpy(lista[index].marcaBicicleta,auxMarca);
+					break;
+				case 2:
+					printf("\t****MODIFICAR SERVICIO****\t\n");
+					MostrarListaServicios(servicios,tamS);
+					utn_getInt("Ingrese el ID del nuevo servicio\n","Error, id invalido\n",20000,20004,2,&auxIdServicio);
+					lista[index].idServicio=auxIdServicio;
+					break;
+			}
+		}while(stricmp(confirmar,"si"));
+
+		isOk=0;
+	}
+	else
+	{
+		printf("No se realizo ningun cambio\n");
 	}
 
 	return isOk;
