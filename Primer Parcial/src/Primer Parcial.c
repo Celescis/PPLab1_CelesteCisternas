@@ -11,22 +11,26 @@
 #include <stdlib.h>
 #include <string.h>
 #include "Funciones.h"
+#include "Utn.h"
 #define REALIZADO 1
 #define NO_REALIZADO 0
 
 
-int main(void) {
+int main(void)
+{
 	setbuf(stdout,NULL);
-	char confirmar[4]="no";
+	char confirmar[2];
 	int cantidad;
 	int flag;
 	int i;
+	int opciones;
+	int idServicio=20000;
 	eTrabajo unTrabajo[T];
 	eServicio unServicio[S];
-	int idServicio=20000;
 
 	Inicializar(unTrabajo,T);
 	HardcodeoServicio(unServicio,&idServicio);
+	strcpy(confirmar,"no");
 
 	do
 	{

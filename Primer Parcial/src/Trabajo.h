@@ -7,7 +7,7 @@
 
 #ifndef TRABAJO_H_
 #define TRABAJO_H_
-#define T 100
+#define T 1000
 #define VACIO 0
 #define OCUPADO 1
 
@@ -33,6 +33,5 @@ void Inicializar(eTrabajo lista[], int tam);
 int BuscarLibre(eTrabajo lista[], int tam);
 int BuscarTrabajoPorId(eTrabajo lista[], int tam, int id);
 int OrdenarTrabajosPorAnio(eTrabajo lista[], int tam);
-
 
 #endif /* TRABAJO_H_ */

@@ -22,7 +22,10 @@ int Menu()
 	printf("5. MOSTRAR lista servicios\n");
 	printf("6. TOTAL en pesos por los servicios prestados\n");
 	printf("0. SALIR\n");
-	utn_getInt("\nIngrese una opcion: \n","Error, opcion invalida",0,6,2,&opciones);
+
+	//scanf("%d",&opciones);
+
+	utn_getInt("\nIngrese una opcion: \n","Error, opcion invalida\n",0,6,2,&opciones);
 
 	return opciones;
 }
@@ -35,7 +38,8 @@ int MenuModificaciones()
 	printf("1. Marca de la bicicleta\n");
 	printf("2. Servicio\n");
 	printf("0. SALIR\n");
-	utn_getInt("\nIngrese una opcion para modificar: \n","Error, opcion invalida",0,2,2,&opciones);
+
+	utn_getInt("\nIngrese una opcion para modificar: \n","Error, opcion invalida\n",0,2,2,&opciones);
 
 	return opciones;
 }
@@ -44,6 +48,7 @@ int AltaTrabajo(eTrabajo lista[], int tam, eServicio listaS[], int tamS)
 {
 	int isOk=-1;
 	int index;
+
 	if(lista!=NULL && tam>0 && listaS!=NULL && tamS>0)
 	{
 		index=BuscarLibre(lista,tam);
@@ -56,6 +61,7 @@ int AltaTrabajo(eTrabajo lista[], int tam, eServicio listaS[], int tamS)
 		{
 			lista[index].id=ObtenerId();
 			utn_getString("Ingrese la marca: \n","Error, reingrese\n",25,2,lista[index].marcaBicicleta);
+			SizeString(lista[index].marcaBicicleta);
 			utn_getInt("Ingrese el rodado: \n","Error, reingrese\n",12,29,2,&lista[index].rodadoBicicleta);
 			MostrarListaServicios(listaS,tamS);
 			utn_getInt("Ingrese el ID del servicio: \n","Error, reingrese\n",20000,20004,2,&lista[index].idServicio);
@@ -151,11 +157,13 @@ int ModificarTrabajo(eTrabajo lista[], int tam, eServicio servicios[], int tamS)
 {
 	int isOk=-1;
 	char respuesta[4];
-	char confirmar[4]="no";
+	char confirmar[4];
 	int index;
 	int auxId;
 	char auxMarca[25];
 	int auxIdServicio;
+
+	strcpy(confirmar,"no");
 
 	MostrarListaTrabajosConServicio(lista,tam,servicios,tamS);
 	utn_getInt("Ingrese el ID del trabajo a modificar: \n","Error, ID invalido\n",1,tam,2,&auxId);
@@ -175,6 +183,7 @@ int ModificarTrabajo(eTrabajo lista[], int tam, eServicio servicios[], int tamS)
 				case 1:
 					printf("\t****MODIFICAR MARCA****\t\n");
 					utn_getString("Ingrese la nueva marca\n","Error, nombre invalido\n",25,2,auxMarca);
+					SizeString(auxMarca);
 					strcpy(lista[index].marcaBicicleta,auxMarca);
 					break;
 				case 2:
