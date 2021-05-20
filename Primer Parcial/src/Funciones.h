@@ -9,12 +9,13 @@
 #define FUNCIONES_H_
 #include "Trabajo.h"
 #include "Servicio.h"
+#include "biblioteca.h"
 #include "Utn.h"
 
 
 int Menu();
 int MenuModificaciones();
-int AltaTrabajo(eTrabajo lista[], int tam, eServicio listaS[], int tamS);
+int AltaTrabajo(eTrabajo lista[], int tam, eServicio listaS[], int tamS, int* id);
 int MostrarTrabajoConServicio(eTrabajo unTrabajo, eServicio servicios[], int tamS);
 int MostrarListaTrabajosConServicio(eTrabajo lista[], int tam, eServicio servicios[], int tamS);
 int BajaTrabajo(eTrabajo lista[], int tam,eServicio servicios[], int tamS);

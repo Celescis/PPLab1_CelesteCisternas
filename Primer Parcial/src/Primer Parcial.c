@@ -15,21 +15,21 @@
 #define REALIZADO 1
 #define NO_REALIZADO 0
 
-
 int main(void)
 {
 	setbuf(stdout,NULL);
-	char confirmar[2];
+	char confirmar[4];
 	int cantidad;
 	int flag;
 	int i;
-	int opciones;
 	int idServicio=20000;
 	eTrabajo unTrabajo[T];
 	eServicio unServicio[S];
+	int idAutoIncremental=0;
 
 	Inicializar(unTrabajo,T);
 	HardcodeoServicio(unServicio,&idServicio);
+	HardcodeoTrabajo(unTrabajo);
 	strcpy(confirmar,"no");
 
 	do
@@ -37,15 +37,15 @@ int main(void)
 		switch(Menu())
 		{
 			case 0:
-				utn_getString("\n¿Esta seguro que desea salir?[si/no]\n","\nRespuesta invalida, ingrese [si/no]\n",4,2,confirmar);
+				utn_getString("\n¿Esta seguro que desea salir?[si/no]\n","\nRespuesta invalida, ingrese [si/no]\n",4,3,confirmar);
 				break;
 			case 1:
 				i=0;
-				printf(" \n\t\t>ALTAS<\t\t\n");
-				utn_getInt("\n¿Cuantos trabajos desea dar de alta?\n","\nError, cantidad invalida\n",1,1000,2,&cantidad);
+				printf(" \n\t\t>>ALTAS<<\t\t\n");
+				utn_getInt("\n¿Cuantos trabajos desea dar de alta?\n","\nError, cantidad invalida\n",1,1000,3,&cantidad);
 				do
 				{
-					if(!(AltaTrabajo(unTrabajo,T,unServicio,S)))
+					if(!(AltaTrabajo(unTrabajo,T,unServicio,S,&idAutoIncremental)))
 					{
 						flag=REALIZADO;
 					}
@@ -53,11 +53,19 @@ int main(void)
 					{
 						flag=NO_REALIZADO;
 					}
+					if(flag==REALIZADO)
+					{
+						printf("\nSe han dado de alta con exito\n");
+					}
+					else
+					{
+						printf("\nError, no se han dado de alta\n");
+					}
 					i++;
 				}while(cantidad!=i);
 				break;
 			case 2:
-				printf("\t\t>MODIFICAR<\t\t\n");
+				printf("\t\t>>MODIFICAR<<\t\t\n");
 				if(flag==REALIZADO)
 				{
 					 ModificarTrabajo(unTrabajo,T,unServicio,S);
@@ -69,10 +77,10 @@ int main(void)
 				break;
 			case 3:
 				i=0;
-				printf("\t\t>BAJAS<\t\t\n");
+				printf("\t\t>>BAJAS<<\t\t\n");
 				if(flag==REALIZADO)
 				{
-					utn_getInt("¿Cuantos trabajos desea dar de baja?\n","Error, cantidad invalida\n",1,1000,2,&cantidad);
+					utn_getInt("¿Cuantos trabajos desea dar de baja?\n","Error, cantidad invalida\n",1,1000,3,&cantidad);
 					do
 					{
 						if(BajaTrabajo(unTrabajo,T,unServicio,S))
@@ -88,23 +96,26 @@ int main(void)
 				}
 				break;
 			case 4:
-				printf("\t\t>LISTA DE TRABAJOS<<\t\t\n");
+				printf("\t\t\t\t>>LISTA DE TRABAJOS<<\t\t\n");
 				if(flag==REALIZADO)
 				{
 					OrdenarTrabajosPorAnio(unTrabajo,T);
-					MostrarListaTrabajosConServicio(unTrabajo,T,unServicio,S);
+					if(MostrarListaTrabajosConServicio(unTrabajo,T,unServicio,S)!=0)
+					{
+						printf("No hay trabajos para mostrar\n");
+					}
 				}
 				else
 				{
-					printf("Error, no se han dado de alta ningun trabajo\n");
+					printf("Error, aún no se han dado de alta\n");
 				}
 				break;
 			case 5:
-				printf("\t\t>LISTA DE SERVICIOS<<\t\t\n");
+				printf("\t  >>LISTA DE SERVICIOS<<\t\t\n");
 				MostrarListaServicios(unServicio,S);
 				break;
 			case 6:
-				printf("\t\t>TOTAL<<\t\t\n");
+				printf("\t\t  >>TOTAL<<\t\t\n");
 				TotalPesosServicio(unTrabajo,T,unServicio,S);
 				break;
 		}
