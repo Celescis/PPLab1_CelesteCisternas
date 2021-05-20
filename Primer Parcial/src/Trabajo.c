@@ -11,11 +11,29 @@
 #include "Trabajo.h"
 #include "Utn.h"
 
-int idAutoIncremental=0;
-
-int ObtenerId(void)
+void HardcodeoTrabajo(eTrabajo listaT[])
 {
-	return idAutoIncremental+=1;
+	int id[3]={1,2,3};
+	char marcaBicicleta[3][25]={"Marca1","Marca2","Marca3"};
+	int rodadoBicicleta[3]={12,16,18};
+	int idServicio[3]={20000,20001,20002};
+	eFecha fecha[3]={{1,2,2020},{10,10,1998},{12,5,2015}};
+	int i;
+
+	for(i=0;i<3;i++)
+	{
+		listaT[i].id=id[i];
+		strcpy(listaT[i].marcaBicicleta,marcaBicicleta[i]);
+		listaT[i].rodadoBicicleta=rodadoBicicleta[i];
+		listaT[i].idServicio=idServicio[i];
+		listaT[i].fecha=fecha[i];
+		listaT[i].isEmpty=OCUPADO;
+	}
+}
+
+void ObtenerId (int* idAutoIncremental)
+{
+	*idAutoIncremental+=1;
 }
 
 void Inicializar(eTrabajo lista[],int tam)
@@ -81,7 +99,6 @@ int OrdenarTrabajosPorAnio(eTrabajo lista[], int tam)
 			{
 				if(strcmp(lista[i].marcaBicicleta,lista[j].marcaBicicleta)>0)
 				{
-
 					auxTrabajo = lista[i];
 					lista[i] = lista[j];
 					lista[j] = auxTrabajo;

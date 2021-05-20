@@ -21,7 +21,7 @@ int isChar(char string[])
 	{
 		if((string[i] != ' ') && (string[i] < 'a' || string[i] > 'z') && (string[i] < 'A' || string[i] > 'Z'))
 		{
-			isOk = 1;
+			isOk = -1;
 			break;
 		}
 	}
@@ -31,7 +31,7 @@ int isChar(char string[])
 int getString(char input[], int tam)
 {
     char auxString[tam];
-    int isOk = 1;
+    int isOk = -1;
 
     if (input != NULL && tam > 0)
     {
@@ -52,7 +52,7 @@ int getString(char input[], int tam)
 }
 int SizeString(char string[])
 {
-	int isOk = 1;
+	int isOk = -1;
 	int i = 0;
 
 	if(string != NULL)
@@ -107,9 +107,9 @@ int isInt(char input[])
 
     for(i=0; i<stringTam ;i++)
     {
-    	if(input[i]< 0 || input[i]> 9 )
+    	if(input[i]< '0' || input[i]> '9' )
         {
-    		isOk=1;
+    		isOk=-1;
             break;
         }
     }
@@ -119,9 +119,9 @@ int isInt(char input[])
 int getInt(int* input)
 {
     char auxString[400];
-    int isOk = 1;
+    int isOk = -1;
 
-    if(!(getString(auxString,sizeof(auxString))) && (isInt(auxString))==1) //podria usar sizeof(auxString) en vez del valor fijo 400
+    if(!(getString(auxString,sizeof(auxString))) && !(isInt(auxString))) //podria usar sizeof(auxString) en vez del valor fijo 400
     {
     	*input=atoi(auxString); // RECIBE UNA CADENA Y DEVUELVE UN VALOR INT
     	isOk=0;
@@ -165,9 +165,9 @@ int isFloat(char input[])
 
     for(i=0; i<stringTam ;i++)
     {
-        if((input[i]< 0 || input[i]> 9 ) && (input[i]!='.'))
+        if((input[i]< '0' || input[i]> '9' ) && (input[i]!='.'))
         {
-        	isOk = 1;
+        	isOk = -1;
             break;
         }
     }
@@ -179,7 +179,7 @@ int getFloat(float* input)
     char auxString[200];
     int isOk =-1;
 
-    if(!(getString(auxString,200)) && (isFloat(auxString))==1)
+    if(!(getString(auxString,200)) && !(isFloat(auxString)))
     {
         *input = atof(auxString); //CONVIERTE A FLOAT LA CADENA
         isOk = 0;
